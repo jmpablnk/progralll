@@ -55,9 +55,10 @@ ALTER TABLE [Schema_Proyectos].[T_Proyecto]
 GO
 
 
+
 CREATE TABLE [Schema_Proyectos].[T_Usuario_Proyecto]
 (
-    [Id_Usuario_Proyecto] INT,
+    [Id_Usuario_Proyecto] INT NOT NULL,
     [Id_Usuario] INT NOT NULL,
     [Id_Proyecto] INT NOT NULL,
     [Id_Rol] INT NOT NULL,    
@@ -74,7 +75,7 @@ GO
 
 CREATE TABLE [Schema_General].[T_Usuario]
 (
-    [Id_Usuario] INT,
+    [Id_Usuario] INT NOT NULL,
     [NombreUsuario] VARCHAR(50) NOT NULL,
     [Contrasena] VARCHAR(100) NOT NULL,
     [Rol] VARCHAR(50),
@@ -91,7 +92,7 @@ GO
 
 CREATE TABLE [Schema_Tareas].[T_Tarea]
 (
-    [Id_Tarea] INT,
+    [Id_Tarea] INT NOT NULL,
     [Titulo] VARCHAR(100) NOT NULL,
     [Descripcion] VARCHAR(255),
     [NivelDificultad] INT,
@@ -114,7 +115,7 @@ GO
 
 CREATE TABLE [Schema_Tareas].[T_Nivel_Dificultad]
 (
-    [Id_Nivel_Dificultad] INT,
+    [Id_Nivel_Dificultad] INT NOT NULL,
     [Nivel] INT NOT NULL,
     [Descripcion] VARCHAR(255)
 );
@@ -129,7 +130,7 @@ GO
 
 CREATE TABLE  [Schema_Tareas].[T_Estado_Tarea]
 (
-    [Id_Estado_Tarea] INT PRIMARY KEY,
+    [Id_Estado_Tarea] INT NOT NULL,
     [Estado] VARCHAR(50) NOT NULL,
     [Descripcion] VARCHAR(255)
 );
@@ -144,7 +145,7 @@ GO
 
 CREATE TABLE  [Schema_Tareas].[T_Usuario_Tarea]
 (
-    Id_Usuario_Tarea INT PRIMARY KEY,
+    Id_Usuario_Tarea INT NOT NULL,
     Id_Usuario INT NOT NULL,
     Id_Tarea INT NOT NULL,
 );
@@ -157,7 +158,7 @@ CREATE TABLE  [Schema_Tareas].[T_Usuario_Tarea]
 ALTER TABLE [Schema_Proyectos].[T_Usuario_Proyecto] WITH NOCHECK
     ADD CONSTRAINT [fk_Usuario_Proyecto_Usuario_Id_Usuario]
     FOREIGN KEY (Id_Usuario)
-    REFERENCES [Schema_General].[Usuario] ([Id_Usuario])
+    REFERENCES [Schema_General].[T_Usuario] ([Id_Usuario])
 
 GO
 
@@ -169,7 +170,7 @@ GO
 ALTER TABLE [Schema_Tareas].[T_Tarea] WITH NOCHECK
     ADD CONSTRAINT [fk_Tarea_Usuario_Id_Usuario]
     FOREIGN KEY (Id_Usuario)
-    REFERENCES [Schema_General].[Usuario] ([Id_Usuario])
+    REFERENCES [Schema_General].[T_Usuario] ([Id_Usuario])
 
 GO
 
@@ -195,7 +196,7 @@ GO
 ALTER TABLE [Schema_Tareas].[T_Usuario_Tarea] WITH NOCHECK
     ADD CONSTRAINT [fk_Usuario_Tarea_Usuario_Id_Usuario]
     FOREIGN KEY (Id_Usuario)
-    REFERENCES [Schema_General].[Usuario] ([Id_Usuario])
+    REFERENCES [Schema_General].[T_Usuario] ([Id_Usuario])
 
 GO
 
