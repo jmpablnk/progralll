@@ -48,8 +48,8 @@ namespace Proyecto_Final.Controllers
         // GET: Tareas/Create
         public IActionResult Create()
         {
-            ViewData["IdProyecto"] = new SelectList(_context.TProyecto, "IdProyecto", "IdProyecto");
-            ViewData["IdUsuario"] = new SelectList(_context.TUsuario, "IdUsuario", "IdUsuario");
+            ViewData["IdProyecto"] = new SelectList(_context.TProyecto, "IdProyecto", "Titulo");
+            ViewData["IdUsuario"] = new SelectList(_context.TUsuario, "IdUsuario", "Usuario");
             return View();
         }
 
@@ -88,8 +88,8 @@ namespace Proyecto_Final.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdProyecto"] = new SelectList(_context.TProyecto, "IdProyecto", "IdProyecto", tTarea.IdProyecto);
-            ViewData["IdUsuario"] = new SelectList(_context.TUsuario, "IdUsuario", "IdUsuario", tTarea.IdUsuario);
+            ViewData["IdProyecto"] = new SelectList(_context.TProyecto, "IdProyecto", "Titulo", tTarea.IdProyecto);
+            ViewData["IdUsuario"] = new SelectList(_context.TUsuario, "IdUsuario", "Usuario", tTarea.IdUsuario);
             return View(tTarea);
         }
 

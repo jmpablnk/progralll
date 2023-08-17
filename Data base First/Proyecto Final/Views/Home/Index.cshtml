@@ -1,8 +1,46 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Bienvenidos al sistema";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            text-align: center; /* Centrar contenido del body */
+        }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        .container {
+            margin: 50px auto; /* Margen para centrar el contenedor */
+            max-width: 800px; /* Ancho máximo del contenedor */
+            padding: 20px; /* Espaciado interno */
+            border: 1px solid black; /* Borde azul */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+
+        h1.display {
+            color: black; /* Color azul intenso */
+        }
+
+        a.btn {
+            margin: 15px; /* Espaciado entre botones */
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4">¡Bienvenidos al Sistema!</h1>
+        <p>Sistema de Plataforma de gestión de proyectos y tareas</p>
+
+        <!-- Botones que redirigen a diferentes páginas -->
+        <a href="/Proyectos" class="btn btn-primary">Ir a Proyectos</a>
+        <a href="/Tareas" class="btn btn-primary">Ir a Tareas</a>
+        <a href="/Usuarios" class="btn btn-primary">Ir a Usuarios</a>
+        <a href="/Roles" class="btn btn-primary">Ir a Roles</a>
+    </div>
+</body>
+</html>

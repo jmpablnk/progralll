@@ -3,26 +3,27 @@
 @{
     ViewData["Title"] = "Index";
 }
+<body class="text-center">
+<h1>USUARIOS</h1>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
+<p style="margin-top: 30px;">
+    <a asp-action="Create" class="btn btn-primary">Crear nuevo proyecto</a> <!-- Botón azul -->
 </p>
+</body>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Usuario)
+            <th style="text-align: center;">
+                Nombre del Usuario
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contrasena)
+            <th style="text-align: center;">
+                Contraseña
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cedula)
+            <th style="text-align: center;">
+                Cedula
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdRolNavigation)
+            <th style="text-align: center;">
+                Nombre del Rol
             </th>
             <th></th>
         </tr>
@@ -30,24 +31,48 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+                <td style ="text-align: center;">
                 @Html.DisplayFor(modelItem => item.Usuario)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Contrasena)
             </td>
-            <td>
+                <td style="text-align: center;">
                 @Html.DisplayFor(modelItem => item.Cedula)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdRolNavigation.IdRol)
+                <td style ="text-align: center;">
+                @Html.DisplayFor(modelItem => item.IdRolNavigation.NombreRol)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdUsuario">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdUsuario">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdUsuario">Delete</a>
+             <html>
+                    <head>
+                        <style>
+                            a.Colorazul {
+                                color: blue; /* Color azul intenso */
+                                text-decoration: underline; /* Subrayado enlace */
+                            }
+
+                                a.delete-link {
+                                    color: red; /* Color rojo */
+                                    text-decoration: underline; /* Subrayado enlace */
+                                }
+                        </style>
+                    </head>
+                    <body>
+
+                        <p style="text-align: right;>
+                             <span style="margin-left: auto;">
+
+                                <a asp-action="Edit" asp-route-id="@item.IdUsuario" class="Colorazul">Editar</a> |
+                                <a asp-action="Details" asp-route-id="@item.IdUsuario" class="Colorazul">Detalles</a> |
+                                <a asp-action="Delete" asp-route-id="@item.IdUsuario" class="delete-link">Eliminar</a>
+                        </p>
+
+                    </body>
+                </html>
             </td>
         </tr>
+            <a href="/Home" class="btn btn-secondary">Volver al menu principal</a>
 }
     </tbody>
 </table>

@@ -4,11 +4,10 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Creacion de un nuevo Usuario</h1>
 
-<h4>TUsuario</h4>
 <hr />
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -23,7 +22,7 @@
                 <span asp-validation-for="Usuario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Contrasena" class="control-label"></label>
+                <label asp-for="Contrasena" class="control-label">Contraseña</label>
                 <input asp-for="Contrasena" class="form-control" />
                 <span asp-validation-for="Contrasena" class="text-danger"></span>
             </div>
@@ -33,18 +32,18 @@
                 <span asp-validation-for="Cedula" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdRol" class="control-label"></label>
+                <label asp-for="IdRol" class="control-label">Nombre del Rol</label>
                 <select asp-for="IdRol" class ="form-control" asp-items="ViewBag.IdRol"></select>
             </div>
-            <div class="form-group">
+            <div class="form-group text-center" style="margin-top: 20px;">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="text-center" style="margin-top: 15px;">
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
 </div>
 
 @section Scripts {

@@ -3,12 +3,13 @@
 @{
     ViewData["Title"] = "Index";
 }
+<body class="text-center">
+<h1>Tipos de Tareas</h1>
 
-<h1>Index</h1>
+    <p style="margin-top: 30px;">
+        <a asp-action="Create" class="btn btn-primary">Crear una nueva Tarea</a> <!-- Botón azul -->
+    </p>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -19,19 +20,19 @@
                 @Html.DisplayNameFor(model => model.Descripcion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NivelDificultad)
+                    @Html.DisplayName("Nivel de Dificultad")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaInicio)
+                @Html.DisplayName("Fecha Inicial")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaFin)
+                @Html.DisplayName("Fecha Final")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdProyectoNavigation)
+                @Html.DisplayName("Numero del proyecto")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+                @Html.DisplayName("Nombre del Usuario" )
             </th>
             <th></th>
         </tr>
@@ -58,14 +59,39 @@
                 @Html.DisplayFor(modelItem => item.IdProyectoNavigation.IdProyecto)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.IdUsuario)
+                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Usuario)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdTarea">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdTarea">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdTarea">Delete</a>
+                        <html>
+                        <head>
+                            <style>
+                                a.Colorazul {
+                                    color: blue; /* Color azul intenso */
+                                    text-decoration: underline; /* Subrayado enlace */
+                                }
+
+                                a.delete-link {
+                                    color: red; /* Color rojo */
+                                    text-decoration: underline; /* Subrayado enlace */
+                                }
+                            </style>
+                        </head>
+                        <body>
+
+                            <p style="text-align: right;>
+                            <span style="margin-left: auto;">
+
+                                    <a asp-action="Edit" asp-route-id="@item.IdProyecto" class="Colorazul">Editar</a> |
+                                    <a asp-action="Details" asp-route-id="@item.IdProyecto" class="Colorazul">Detalles</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.IdProyecto" class="delete-link">Eliminar</a>
+                            </p>
+
+                        </body>
+                    </html>
             </td>
         </tr>
+            <a href="/Home" class="btn btn-secondary">Volver al menu principal</a>
 }
     </tbody>
 </table>
+</body>

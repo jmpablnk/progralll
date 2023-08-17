@@ -4,25 +4,43 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1 {
+            color: #111; /* Cambia este valor al tono de gris que prefieras */
+        }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+        p a {
+            color: blue; /* Cambia este valor al tono de gris que prefieras */
+        }
+    </style>
+</head>
+<body class="text-center">
+
+    <h1 >Proyectos</h1>
+
+    <p style="margin-top: 30px;">
+    <a asp-action="Create" class="btn btn-primary">Crear nuevo proyecto</a> <!-- Botón azul -->
+    </p>
+
+</body>
+</html>
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th style ="text-align: center;">
                 @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th>
+            </ths>
+                <th style ="text-align: center;">
                 @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
+            </th style ="text-align: center;">
             <th>
-                @Html.DisplayNameFor(model => model.FechaInicio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaFin)
+                @Html.DisplayName("Fecha Inicial")
+            </th style ="text-align: center;">
+            <th style ="text-align: center;">
+                @Html.DisplayName("Fecha Final")
             </th>
             <th></th>
         </tr>
@@ -30,24 +48,48 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+                <td style ="text-align: center;">
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
-            <td>
+            <td style ="text-align: center;">
                 @Html.DisplayFor(modelItem => item.Descripcion)
             </td>
-            <td>
+            <td style ="text-align: center;">
                 @Html.DisplayFor(modelItem => item.FechaInicio)
             </td>
-            <td>
+            <td style ="text-align: center;">
                 @Html.DisplayFor(modelItem => item.FechaFin)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdProyecto">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdProyecto">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdProyecto">Delete</a>
+                    <html>
+                    <head>
+                        <style>
+                            a.Colorazul {
+                                color: blue; /* Color azul intenso */
+                                text-decoration: underline; /* Subrayado enlace */
+                            }
+
+                                a.delete-link {
+                                    color: red; /* Color rojo */
+                                    text-decoration: underline; /* Subrayado enlace */
+                                }
+                        </style>
+                    </head>
+                    <body>
+
+                        <p style="text-align: right;>
+                             <span style="margin-left: auto;">
+
+                            <a asp-action="Edit" asp-route-id="@item.IdProyecto" class="Colorazul">Editar</a> |
+                            <a asp-action="Details" asp-route-id="@item.IdProyecto" class="Colorazul">Detalles</a> |
+                            <a asp-action="Delete" asp-route-id="@item.IdProyecto" class="delete-link">Eliminar</a>
+                        </p>
+
+                    </body>
+                </html>
             </td>
         </tr>
+        <a href="/Home" class="btn btn-secondary">Volver al menu principal</a>
 }
     </tbody>
 </table>

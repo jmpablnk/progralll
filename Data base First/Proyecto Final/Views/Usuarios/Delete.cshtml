@@ -12,13 +12,13 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Usuario)
+            @Html.DisplayNameFor(model => model.Usuario).Replace("Usuario", "Nombre del Usuario")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Usuario)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Contrasena)
+            @Html.DisplayNameFor(model => model.Contrasena).Replace("Contrasena", "Contraseña")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Contrasena)
@@ -30,16 +30,16 @@
             @Html.DisplayFor(model => model.Cedula)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdRolNavigation)
+            @Html.DisplayNameFor(model => model.IdRolNavigation).Replace("IdRolNavigation","Nombre del ROl")
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdRolNavigation.IdRol)
+            @Html.DisplayFor(model => model.IdRolNavigation.NombreRol)
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdUsuario" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
     </form>
 </div>

@@ -85,7 +85,7 @@ namespace Proyecto_Final.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdRol"] = new SelectList(_context.TRole, "IdRol", "IdRol", tUsuario.IdRol);
+            ViewData["IdRol"] = new SelectList(_context.TRole, "IdRol", "NombreRol", tUsuario.IdRol);
             return View(tUsuario);
         }
 
