@@ -1,0 +1,73 @@
+﻿@model Proyecto_Final.Models.TTarea
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1 {
+            color: red; /* Cambia a "red" para el color rojo */
+        }
+    </style>
+</head>
+<body>
+<h1>Eliminar Tareas</h1>
+</body>
+</html>
+
+<h3>Deseas Eliminarlo?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NivelDificultad).Replace("NivelDificultad", "Nivel de Dificultad")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NivelDificultad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaInicio).Replace("FechaInicio", "Fecha Inicial")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaFin).Replace("FechaFin", "Plazo Final")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaFin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdProyectoNavigation).Replace("IdProyectoNavigation", "Nombre Del proyecto")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdProyectoNavigation.Titulo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdUsuarioNavigation).Replace("IdUsuarioNavigation", "Nombre Del Usuario")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdUsuarioNavigation.Usuario)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdTarea" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    </form>
+</div>

@@ -1,0 +1,64 @@
+﻿@model Proyecto_Final.Models.TTarea
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear una nueva tarea</h1>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdTarea" class="control-label">Numero de tarea</label>
+                <input asp-for="IdTarea" class="form-control" />
+                <span asp-validation-for="IdTarea" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdProyecto" class="control-label">Titulo del proyecto</label>
+                <select asp-for="IdProyecto" class ="form-control" asp-items="ViewBag.IdProyecto"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label">Titulo de la Tarea</label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NivelDificultad" class="control-label">Nivel de Dificultad</label>
+                <input asp-for="NivelDificultad" class="form-control" />
+                <span asp-validation-for="NivelDificultad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaInicio" class="control-label">Fecha de Inicio</label>
+                <input asp-for="FechaInicio" class="form-control" />
+                <span asp-validation-for="FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaFin" class="control-label">Plazo Final</label>
+                <input asp-for="FechaFin" class="form-control" />
+                <span asp-validation-for="FechaFin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUsuario" class="control-label">Nombre del Usuario</label>
+                <select asp-for="IdUsuario" class ="form-control" asp-items="ViewBag.IdUsuario"></select>
+            </div>
+            <div class="form-group text-center" style="margin-top: 20px;">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="text-center" style="margin-top: 15px;">
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

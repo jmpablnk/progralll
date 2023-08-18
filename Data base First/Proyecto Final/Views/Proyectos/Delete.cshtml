@@ -1,0 +1,60 @@
+﻿@model Proyecto_Final.Models.TProyecto
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1 {
+            color: red; /* Cambia a "red" para el color rojo */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Eliminar</h1>
+
+</body>
+</html>
+
+<h3>Estas seguro que desear eliminar el proyecto?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaInicio).Replace("FechaInicio", "Fecha Inicial")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaFin).Replace("FechaFin", "Fecha Final")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaFin)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdProyecto" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <p style="margin-top: 10px;">
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+        <p></p>
+    </form>
+</div>

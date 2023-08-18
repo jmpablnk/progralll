@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Proyecto_Final.Models.TUsuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<body class="text-center">
+<h1>USUARIOS</h1>
+
+<p style="margin-top: 30px;">
+    <a asp-action="Create" class="btn btn-primary">Crear nuevo proyecto</a> <!-- Botón azul -->
+        <a href="/Home" class="btn btn-secondary">Volver al menu principal</a>
+</p>
+</body>
+<table class="table">
+    <thead>
+        <tr>
+            <th style="text-align: center;">
+                Nombre del Usuario
+            </th>
+            <th style="text-align: center;">
+                Contraseña
+            </th>
+            <th style="text-align: center;">
+                Cedula
+            </th>
+            <th style="text-align: center;">
+                Nombre del Rol
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td style ="text-align: center;">
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contrasena)
+            </td>
+                <td style="text-align: center;">
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+                <td style ="text-align: center;">
+                @Html.DisplayFor(modelItem => item.IdRolNavigation.NombreRol)
+            </td>
+            <td>
+             <html>
+                    <head>
+                    </head>
+                    <body>
+
+                        <p style="text-align: right;>
+                             <span style="margin-left: auto;">
+
+                                <a asp-action="Edit" asp-route-id="@item.IdUsuario">Editar</a> |
+                                <a asp-action="Details" asp-route-id="@item.IdUsuario">Detalles</a> |
+                                <a asp-action="Delete" asp-route-id="@item.IdUsuario" class="delete-link">Eliminar</a>
+                        </p>
+
+                    </body>
+                </html>
+            </td>
+        </tr>
+            
+}
+    </tbody>
+</table>
