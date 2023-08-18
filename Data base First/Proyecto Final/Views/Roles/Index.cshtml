@@ -9,7 +9,7 @@
 
 <p>
    <p style="margin-top: 30px;">
-    <a asp-action="Create" class="btn btn-primary">Crear nuevo proyecto</a> <!-- Botón azul -->
+    <a asp-action="Create" class="btn btn-primary">Crear nuevo proyecto</a> 
     </p>
 </p>
 <table class="table">
@@ -29,22 +29,11 @@
                 @Html.DisplayFor(modelItem => item.NombreRol)
             </td>
                 <head>
-                    <style>
-                        a.Colorazul {
-                            color: blue; /* Color azul intenso */
-                            text-decoration: underline; /* Subrayado enlace */
-                        }
-
-                        a.delete-link {
-                            color: red; /* Color rojo */
-                            text-decoration: underline; /* Subrayado enlace */
-                        }
-                    </style>
                 </head>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.IdRol" class="Colorazul">Editar</a> |
-                        <a asp-action="Details" asp-route-id="@item.IdRol" class="Colorazul">Detalles</a> |
-                        <a asp-action="Delete" asp-route-id="@item.IdRol" class="delete-link">Eliminar</a>
+                        <a asp-action="Edit" asp-route-id="@item.IdRol">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.IdRol">Detalles</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdRol">Eliminar</a>
                     </td>
         </tr>
             <a href="/Home" class="btn btn-secondary">Volver al menu principal</a>

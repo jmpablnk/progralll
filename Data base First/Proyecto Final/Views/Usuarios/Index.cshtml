@@ -46,25 +46,14 @@
             <td>
              <html>
                     <head>
-                        <style>
-                            a.Colorazul {
-                                color: blue; /* Color azul intenso */
-                                text-decoration: underline; /* Subrayado enlace */
-                            }
-
-                                a.delete-link {
-                                    color: red; /* Color rojo */
-                                    text-decoration: underline; /* Subrayado enlace */
-                                }
-                        </style>
                     </head>
                     <body>
 
                         <p style="text-align: right;>
                              <span style="margin-left: auto;">
 
-                                <a asp-action="Edit" asp-route-id="@item.IdUsuario" class="Colorazul">Editar</a> |
-                                <a asp-action="Details" asp-route-id="@item.IdUsuario" class="Colorazul">Detalles</a> |
+                                <a asp-action="Edit" asp-route-id="@item.IdUsuario">Editar</a> |
+                                <a asp-action="Details" asp-route-id="@item.IdUsuario">Detalles</a> |
                                 <a asp-action="Delete" asp-route-id="@item.IdUsuario" class="delete-link">Eliminar</a>
                         </p>
 

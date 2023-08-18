@@ -8,88 +8,67 @@
 <html>
 <head>
     <style>
-        h1 {
-            color: #111; /* Cambia este valor al tono de gris que prefieras */
+        /* Agrega estilos personalizados aquí */
+        .card {
+            margin-bottom: 20px;
         }
 
-        p a {
-            color: blue; /* Cambia este valor al tono de gris que prefieras */
+        .card-body {
+            text-align: left;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .card-text strong {
+            display: block;
+        }
+
+        .text-right {
+            text-align: right;
         }
     </style>
 </head>
 <body class="text-center">
 
-    <h1 >Proyectos</h1>
+    <h1>Proyectos</h1>
 
     <p style="margin-top: 30px;">
-    <a asp-action="Create" class="btn btn-primary">Crear nuevo proyecto</a> <!-- Botón azul -->
+        <a asp-action="Create" class="btn btn-primary">Crear nuevo proyecto</a>
     </p>
 
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                            <p class="card-text"><strong>Fecha Inicial:</strong> @Html.DisplayFor(modelItem => item.FechaInicio)</p>
+                            <p class="card-text"><strong>Fecha Final:</strong> @Html.DisplayFor(modelItem => item.FechaFin)</p>
+                            <div class="text-right">
+                                <a asp-action="Edit" asp-route-id="@item.IdProyecto">Editar</a> |
+                                <a asp-action="Details" asp-route-id="@item.IdProyecto">Detalles</a> |
+                                <a asp-action="Delete" asp-route-id="@item.IdProyecto" class="delete-link">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <a href="/Home" class="btn btn-secondary">Volver al menu principal</a>
 </body>
 </html>
-<table class="table">
-    <thead>
-        <tr>
-            <th style ="text-align: center;">
-                @Html.DisplayNameFor(model => model.Titulo)
-            </ths>
-                <th style ="text-align: center;">
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th style ="text-align: center;">
-            <th>
-                @Html.DisplayName("Fecha Inicial")
-            </th style ="text-align: center;">
-            <th style ="text-align: center;">
-                @Html.DisplayName("Fecha Final")
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-                <td style ="text-align: center;">
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td style ="text-align: center;">
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td style ="text-align: center;">
-                @Html.DisplayFor(modelItem => item.FechaInicio)
-            </td>
-            <td style ="text-align: center;">
-                @Html.DisplayFor(modelItem => item.FechaFin)
-            </td>
-            <td>
-                    <html>
-                    <head>
-                        <style>
-                            a.Colorazul {
-                                color: blue; /* Color azul intenso */
-                                text-decoration: underline; /* Subrayado enlace */
-                            }
 
-                                a.delete-link {
-                                    color: red; /* Color rojo */
-                                    text-decoration: underline; /* Subrayado enlace */
-                                }
-                        </style>
-                    </head>
-                    <body>
 
-                        <p style="text-align: right;>
-                             <span style="margin-left: auto;">
 
-                            <a asp-action="Edit" asp-route-id="@item.IdProyecto" class="Colorazul">Editar</a> |
-                            <a asp-action="Details" asp-route-id="@item.IdProyecto" class="Colorazul">Detalles</a> |
-                            <a asp-action="Delete" asp-route-id="@item.IdProyecto" class="delete-link">Eliminar</a>
-                        </p>
 
-                    </body>
-                </html>
-            </td>
-        </tr>
-        <a href="/Home" class="btn btn-secondary">Volver al menu principal</a>
-}
-    </tbody>
-</table>
+
+
+

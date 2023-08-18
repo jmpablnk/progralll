@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "KFfe1dYubqLoB67bMhYgfPJDDa7Y+ec0jD3V4ugd7FxVKwdKgfJykw4+1BucMsDA9/TYuFwsrbZr69yzkqyzoA==",
+  "dgSpecHash": "NtFpe298PXJb94c97JUj+UI2WFYgkSDUMEa99rtikFkJ0nuDpCEvOoOA6hv9+X/nOP801ayEo8S8x4huUXqhRw==",
   "success": true,
   "projectFilePath": "C:\\Users\\hora1\\Downloads\\Proyecto FInal - programacion III\\Data base First\\Proyecto Final\\Proyecto Final.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hora1\\.nuget\\packages\\bootstrap\\5.3.1\\bootstrap.5.3.1.nupkg.sha512",
+    "C:\\Users\\hora1\\.nuget\\packages\\bootstrap.themes\\1.0.0\\bootstrap.themes.1.0.0.nupkg.sha512",
     "C:\\Users\\hora1\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\hora1\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\hora1\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

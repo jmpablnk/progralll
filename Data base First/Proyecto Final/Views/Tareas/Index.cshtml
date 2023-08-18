@@ -3,95 +3,55 @@
 @{
     ViewData["Title"] = "Index";
 }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Estilos personalizados */
+        .mt-3 {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
 <body class="text-center">
-<h1>Tipos de Tareas</h1>
+
+    <h1>Tipos de Tareas</h1>
 
     <p style="margin-top: 30px;">
-        <a asp-action="Create" class="btn btn-primary">Crear una nueva Tarea</a> <!-- Botón azul -->
+        <a asp-action="Create" class="btn btn-primary">Crear una nueva Tarea</a>
     </p>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                    @Html.DisplayName("Nivel de Dificultad")
-            </th>
-            <th>
-                @Html.DisplayName("Fecha Inicial")
-            </th>
-            <th>
-                @Html.DisplayName("Fecha Final")
-            </th>
-            <th>
-                @Html.DisplayName("Numero del proyecto")
-            </th>
-            <th>
-                @Html.DisplayName("Nombre del Usuario" )
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NivelDificultad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaInicio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaFin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdProyectoNavigation.IdProyecto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Usuario)
-            </td>
-            <td>
-                        <html>
-                        <head>
-                            <style>
-                                a.Colorazul {
-                                    color: blue; /* Color azul intenso */
-                                    text-decoration: underline; /* Subrayado enlace */
-                                }
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                            <p class="card-text"><strong>Nivel de Dificultad:</strong> @Html.DisplayFor(modelItem => item.NivelDificultad)</p>
+                            <p class="card-text"><strong>Fecha Inicial:</strong> @Html.DisplayFor(modelItem => item.FechaInicio)</p>
+                            <p class="card-text"><strong>Fecha Final:</strong> @Html.DisplayFor(modelItem => item.FechaFin)</p>
+                            <p class="card-text"><strong>Nombre del proyecto:</strong> @Html.DisplayFor(modelItem => item.IdProyectoNavigation.Titulo)</p>
+                            <p class="card-text"><strong>Nombre del Usuario:</strong> @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Usuario)</p>
+                            <div class="text-right">
+                                <a asp-action="Edit" asp-route-id="@item.IdProyecto">Editar</a> |
+                                <a asp-action="Details" asp-route-id="@item.IdProyecto">Detalles</a> |
+                                <a asp-action="Delete" asp-route-id="@item.IdProyecto">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 
-                                a.delete-link {
-                                    color: red; /* Color rojo */
-                                    text-decoration: underline; /* Subrayado enlace */
-                                }
-                            </style>
-                        </head>
-                        <body>
-
-                            <p style="text-align: right;>
-                            <span style="margin-left: auto;">
-
-                                    <a asp-action="Edit" asp-route-id="@item.IdProyecto" class="Colorazul">Editar</a> |
-                                    <a asp-action="Details" asp-route-id="@item.IdProyecto" class="Colorazul">Detalles</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.IdProyecto" class="delete-link">Eliminar</a>
-                            </p>
-
-                        </body>
-                    </html>
-            </td>
-        </tr>
-            <a href="/Home" class="btn btn-secondary">Volver al menu principal</a>
-}
-    </tbody>
-</table>
+    <a href="/Home" class="btn btn-secondary mt-3">Volver al menu principal</a>
 </body>
+</html>
+
+
+
+

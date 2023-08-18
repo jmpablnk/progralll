@@ -47,7 +47,7 @@ namespace Proyecto_Final.Controllers
         // GET: Usuarios/Create
         public IActionResult Create()
         {
-            ViewData["IdRol"] = new SelectList(_context.TRole, "IdRol", "IdRol");
+            ViewData["IdRol"] = new SelectList(_context.TRole, "IdRol", "NombreRol");
             return View();
         }
 
