@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios</title>
+  <link rel="stylesheet" href="usuarios.css">
+</head>
+<body>
+  <div id="header">
+    <h1>Gestión de Usuarios</h1>
+    <a href="progralll.html" class="back-button">Volver al Dashboard</a>
+  </div>
+  <div id="content">
+    <div class="user-section">
+      <h2>Lista de Usuarios</h2>
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo Electrónico</th>
+            <th>Rol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Usuario 1</td>
+            <td>usuario1@example.com</td>
+            <td>Administrador</td>
+          </tr>
+          <tr>
+            <td>Usuario 2</td>
+            <td>usuario2@example.com</td>
+            <td>Usuario Normal</td>
+          </tr>
+        </tbody>
+      </table>
+      <form class="user-form">
+        <input type="text" placeholder="Nombre">
+        <input type="email" placeholder="Correo Electrónico">
+        <select>
+          <option value="admin">Administrador</option>
+          <option value="user">Usuario Normal</option>
+        </select>
+        <button type="submit">Agregar Usuario</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
